@@ -1,4 +1,5 @@
 #! /bin/bash -xve
+#unko
 
 exec 2> /tmp/setup.log
 
