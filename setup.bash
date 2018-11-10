@@ -1,5 +1,4 @@
 #! /bin/bash -xve
-#ubuntu
 
 exec 2> /tmp/setup.log
 
