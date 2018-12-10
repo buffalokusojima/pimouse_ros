@@ -16,7 +16,7 @@ class BuzzerTest(unittest.TestCase):
             time.sleep(0.1)
 
         with open("/dev/rtbuzzer0","r") as f:
-            data = f.readLine()
+            data = f.readline()
             self.assertEqual(data, "1234\n", "value is not written to rtbuzzerer0")
         
 if __name__ == '__main__':
