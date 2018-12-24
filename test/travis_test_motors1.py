@@ -41,7 +41,7 @@ class MotorTest(unittest.TestCase):
 
         time.sleep(1.1)
         self.file_check("rtmotor_raw_r0",0,"don't stop after l[s]")
-        self.file_Check("rtmotor_raw_l0",0,"don't stop after l[s]")
+        self.file_check("rtmotor_raw_l0",0,"don't stop after l[s]")
 
 if __name__ == '__main__':
     time.sleep(3)
