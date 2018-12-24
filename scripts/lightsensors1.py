@@ -4,7 +4,6 @@ import sys, rospy
 
 from pimouse_ros.msg import LightSensorValues
 
-
 def get_freq():
     f = rospy.get_param('lightsensors_freq', 10)
     try:
