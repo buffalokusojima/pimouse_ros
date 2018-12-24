@@ -35,14 +35,14 @@ class LightSensorTest(unittest.TestCase):
 
             time.sleep(3)
 
-            self.asssertFalse(slef.count == 0,"cannot subscribe the topic")
+            self.asssertFalse(self.count == 0,"cannot subscribe the topic")
             self.check_values(4321,123,0,-1)
 
     def test_change_parameter(self):
         rospy.set_param('lightsensors_freq',1)
         time.sleep(2)
         c_prev = self.count
-        time_sleep(3)
+        time.sleep(3)
 
         self.assertTrue(self.count < c_prev + 4, "freq does not change")
         self.assertFalse(self.count == c.prev,"subscrber is stopped")

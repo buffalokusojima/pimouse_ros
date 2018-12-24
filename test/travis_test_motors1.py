@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import unittest, rostest
-import risnode, rospy
+import rosnode, rospy
 import time
 from pimouse_ros.msg import MotorFreqs
 from geometory_msgs.msg import Twist
