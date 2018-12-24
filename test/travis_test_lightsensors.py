@@ -26,7 +26,7 @@ class LightSensorTest(unittest.TestCase):
 
     def test_node_exist(self):
         nodes = rosnode.get_node_names()
-        print nodes
+        print "nodes name: " + nodes
         self.assertIn('/lightsensors',nodes, "node does not exist")
 
     def test_get_value(self):
