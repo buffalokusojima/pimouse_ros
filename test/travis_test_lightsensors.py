@@ -26,7 +26,7 @@ class LightSensorTest(unittest.TestCase):
 
     def test_node_exist(self):
         nodes = rosnode.get_node_names()
-        self.assertIn('/lightsensors',nodes, "node does not exist"+nodes)
+        self.assertIn('/lightsensors',nodes, "node does not exist"+nodes.toString())
 
     def test_get_value(self):
         rospy.set_param('lightsensors_freq',10)
