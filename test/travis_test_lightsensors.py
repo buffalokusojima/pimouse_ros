@@ -5,7 +5,7 @@ import rosnode, rospy
 import time
 from pimouse_ros.msg import LightSensorValues
 
-class LightSensorTest(unittest.TestCase):
+class LightsensorTest(unittest.TestCase):
     def setUp(self):
         self.count = 0
         rospy.Subscriber('/lightsensors', LightSensorValues, self.callback)
@@ -25,10 +25,7 @@ class LightSensorTest(unittest.TestCase):
         self.assertEqual(vs.sum_forward, lf+rf, "diffrent value; sum")
 
     def test_node_exist(self):
-        nodes = rosnode.get_node_names()
-        for node in nodes:
-            print node
-            
+        nodes = rosnode.get_node_names()        
         self.assertIn('/lightsensors',nodes, "node does not exist")
 
     def test_get_value(self):
@@ -54,4 +51,4 @@ class LightSensorTest(unittest.TestCase):
 if __name__ == '__main__':
     time.sleep(3)
     rospy.init_node('travis_test_lightsensors')
-    rostest.rosrun('pimouse_ros', 'travis_test_lightsensors', LightSensorTest)
+    rostest.rosrun('pimouse_ros', 'travis_test_lightsensors', LightsensorTest)
