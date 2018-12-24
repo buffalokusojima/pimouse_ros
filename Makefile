@@ -6,3 +6,7 @@ install:
 uninstall:
 	update-rc.d raspimouse remove
 	rm /etc/init.d/raspimouse
+
+clean:
+    find . -type f | xargs touch
+    rm -rf $(OBJS)
