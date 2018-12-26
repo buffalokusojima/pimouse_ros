@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys, rospy
+import logging
 
 from pimouse_ros.msg import LightSensorValues
 
@@ -28,7 +29,7 @@ if __name__ == '__main__':
         try:
             with open(devfile,'r') as f:
                 data = f.readline().split()
-                print data
+                logging.error(data)
                 data = [ int(e) for e in data]
                 d = LightSensorValues()
                 d.right_forward = data[0]
