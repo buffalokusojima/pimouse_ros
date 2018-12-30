@@ -2,7 +2,8 @@
 
 import sys, rospy, math
 from pimouse_ros.msg import MotorFreqs
-from geometory_msgs import Twist
+from geometry_msgs.msg import Twist
+from std_srvs.srv import Trigger, TriggerResponse
 
 class Motor():
     def __init__(self):
@@ -13,7 +14,7 @@ class Motor():
         self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
         self.srv_on = rospy.Service('motor_on', Trigger, self.callback_on)
         self.srv_off = rospy.Service('motor_off', Trigger, self.callback_off)
-        self.last_time = rospy.Time_now()
+        self.last_time = rospy.Time.now()
         self.using_cmd_vel = False
 
     def set_power(self,onoff=False):
@@ -40,7 +41,7 @@ class Motor():
         except:
             rospy.logerr("cannot write to rtmotor_raw_*")
 
-    def callback_cmd_freq(self,message):
+    def callback_raw_freq(self,message):
         self.set_raw_freq(message.left_hz,message.right_hz)
 
     def callback_cmd_vel(self,message):
@@ -57,7 +58,7 @@ class Motor():
         return d
 
     def callback_on(self,message): return self.onoff_response(True)
-    def callback_off(self,message): return self.onoff_response(Flase)
+    def callback_off(self,message): return self.onoff_response(False)
         
 if __name__ == '__main__':
     rospy.init_node('motors')
