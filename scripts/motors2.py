@@ -49,7 +49,7 @@ class Motor():
         rot_hz = 400.0*message.angular.z/math.pi
         self.set_raw_freq(forward_hz-rot_hz, forward_hz+rot_hz)
         self.using_cmd_vel = True
-        self.last_time = rospy.Time_now()
+        self.last_time = rospy.Time.now()
 
     def onoff_response(self, onoff):
         d = TriggerResponse()
