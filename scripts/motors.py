@@ -15,9 +15,7 @@ class Motor():
         self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
         self.srv_on = rospy.Service('motor_on', Trigger, self.callback_on)
         self.srv_off = rospy.Service('motor_off', Trigger, self.callback_off)
-        self.last_time = rospy.Time.now()
         self.using_cmd_vel = False
-        self.srv_tm = rospy.Service('timed_motion', TimedMotion, self.callback_tm)
 
     def set_power(self,onoff=False):
         en = "/dev/rtmotoren0"
@@ -83,9 +81,7 @@ if __name__ == '__main__':
     m = Motor()
 
     rate = rospy.Rate(10)
-    while not rospy.is_shutdown():
-        if m.using_cmd_vel:
-            m.set_raw_freq(0,0)
-            m.using_cmd_vel = False
+    while not rospy.is_shutdown():    
+        
         rate.sleep()
     
